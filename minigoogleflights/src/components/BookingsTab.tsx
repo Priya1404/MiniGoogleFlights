@@ -55,14 +55,11 @@ const BookingsTab: React.FC<BookingsTabProps> = ({ bookings, setTab, resetSearch
           </div>
         );
       })}
-      <button
-        className="select-flight-btn"
-        onClick={resetSearch}
-      >
+      <button className="select-flight-btn" onClick={resetSearch}>
         Book New Flight
       </button>
     </div>
   );
 };
 
-export default BookingsTab; 
+export default BookingsTab;

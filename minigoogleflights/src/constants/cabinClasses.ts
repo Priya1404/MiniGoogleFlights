@@ -3,4 +3,4 @@ export const CABIN_CLASSES = [
   { value: 'premium_economy', label: 'Premium Economy' },
   { value: 'business', label: 'Business' },
   { value: 'first', label: 'First' },
-]; 
+];

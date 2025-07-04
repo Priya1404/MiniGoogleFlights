@@ -7,22 +7,24 @@ interface SuggestionsDropdownProps {
   focused: boolean;
 }
 
-const SuggestionsDropdown: React.FC<SuggestionsDropdownProps> = ({ suggestions, onSelect, focused }) => {
-  if (!focused) return null;
+const SuggestionsDropdown: React.FC<SuggestionsDropdownProps> = ({
+  suggestions,
+  onSelect,
+  focused,
+}) => {
+  if (!focused || suggestions.length === 0) return null;
   return (
-    suggestions.length > 0 && (
-      <ul className="suggestions-list">
-        {suggestions.map((s, idx) => (
-          <li key={idx} className="suggestion-cell" onMouseDown={() => onSelect(s)}>
-            <span className="suggestion-main">
-              {s.suggestionTitle || s.name + (s.iataCode ? ` (${s.iataCode})` : '')}
-            </span>
-            <span className="suggestion-meta">{s.country}</span>
-          </li>
-        ))}
-      </ul>
-    )
+    <ul className="suggestions-list">
+      {suggestions.map((s, idx) => (
+        <li key={idx} className="suggestion-cell" onMouseDown={() => onSelect(s)}>
+          <span className="suggestion-main">
+            {s.suggestionTitle || s.name + (s.iataCode ? ` (${s.iataCode})` : '')}
+          </span>
+          <span className="suggestion-meta">{s.country}</span>
+        </li>
+      ))}
+    </ul>
   );
 };
 
-export default SuggestionsDropdown; 
+export default SuggestionsDropdown;

@@ -38,7 +38,8 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({
       <div className="checkout-modal modal-common success-screen">
         <h2>Booking Successful!</h2>
         <div>
-          Your flight from {mainLeg?.origin?.displayCode} to {lastLeg?.destination?.displayCode} is booked.
+          Your flight from {mainLeg?.origin?.displayCode} to {lastLeg?.destination?.displayCode} is
+          booked.
         </div>
         <button
           className="select-flight-btn"
@@ -184,4 +185,4 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({
   );
 };
 
-export default CheckoutModal; 
+export default CheckoutModal;

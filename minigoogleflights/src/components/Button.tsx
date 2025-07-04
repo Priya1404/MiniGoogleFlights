@@ -10,4 +10,4 @@ const Button: React.FC<ButtonProps> = ({ children, ...props }) => (
   </button>
 );
 
-export default Button; 
+export default Button;

@@ -7,8 +7,8 @@ declare const process: { env: { [key: string]: string | undefined } };
 // axios instance
 export const apiClient = axios.create({
   baseURL: 'https://sky-scrapper.p.rapidapi.com/api/v1/',
-    headers: {
-      'x-rapidapi-host': 'sky-scrapper.p.rapidapi.com',
+  headers: {
+    'x-rapidapi-host': 'sky-scrapper.p.rapidapi.com',
     'x-rapidapi-key': process.env.REACT_APP_RAPIDAPI_KEY || '',
   },
 });

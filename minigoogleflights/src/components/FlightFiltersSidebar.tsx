@@ -35,7 +35,7 @@ const FlightFiltersSidebar: React.FC<FlightFiltersSidebarProps> = ({
               setSelectedStops(
                 e.target.checked
                   ? [...selectedStops, 'direct']
-                  : selectedStops.filter((x) => x !== 'direct')
+                  : selectedStops.filter((x) => x !== 'direct'),
               )
             }
           />{' '}
@@ -50,9 +50,7 @@ const FlightFiltersSidebar: React.FC<FlightFiltersSidebarProps> = ({
             checked={selectedStops.includes('1')}
             onChange={(e) =>
               setSelectedStops(
-                e.target.checked
-                  ? [...selectedStops, '1']
-                  : selectedStops.filter((x) => x !== '1')
+                e.target.checked ? [...selectedStops, '1'] : selectedStops.filter((x) => x !== '1'),
               )
             }
           />{' '}
@@ -69,7 +67,7 @@ const FlightFiltersSidebar: React.FC<FlightFiltersSidebarProps> = ({
               setSelectedStops(
                 e.target.checked
                   ? [...selectedStops, '2+']
-                  : selectedStops.filter((x) => x !== '2+')
+                  : selectedStops.filter((x) => x !== '2+'),
               )
             }
           />{' '}
@@ -137,7 +135,7 @@ const FlightFiltersSidebar: React.FC<FlightFiltersSidebarProps> = ({
                   setSelectedAirlines(
                     e.target.checked
                       ? [...selectedAirlines, name]
-                      : selectedAirlines.filter((x) => x !== name)
+                      : selectedAirlines.filter((x) => x !== name),
                   )
                 }
               />{' '}
@@ -158,4 +156,4 @@ const FlightFiltersSidebar: React.FC<FlightFiltersSidebarProps> = ({
   );
 };
 
-export default FlightFiltersSidebar; 
+export default FlightFiltersSidebar;

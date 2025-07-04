@@ -50,9 +50,7 @@ const FlightRow: FC<FlightRowProps> = ({ index, style, data }) => {
         </div>
       </div>
       <div style={{ flex: 1, fontWeight: 600 }}>{flight.price.formatted}</div>
-      <Button onClick={() => onSelect(flight)}>
-        Select
-      </Button>
+      <Button onClick={() => onSelect(flight)}>Select</Button>
     </div>
   );
 };

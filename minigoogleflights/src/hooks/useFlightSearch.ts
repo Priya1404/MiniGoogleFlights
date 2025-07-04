@@ -1,14 +1,19 @@
 import { useState, useRef, useMemo, useEffect } from 'react';
 import { flightRepository } from '../services/api';
 import { getCachedFlightResults, cacheFlightResults } from '../utils/db';
-import { MOCK_CURRENT_AIRPORT, MOCK_FLIGHTS, MOCK_NEARBY_AIRPORTS, MOCK_SUGGESTIONS } from '../__mocks__/mockData';
+import {
+  MOCK_CURRENT_AIRPORT,
+  MOCK_FLIGHTS,
+  MOCK_NEARBY_AIRPORTS,
+  MOCK_SUGGESTIONS,
+} from '../__mocks__/mockData';
 import { Suggestion, Airport, NearbyAirport } from '../types/flightSearch';
 
 function filterSuggestions(query: string) {
   if (!query) return [];
   const q = query.toLowerCase();
   return MOCK_SUGGESTIONS.filter(
-    (s) => s.name.toLowerCase().includes(q) || s.iataCode.toLowerCase().includes(q)
+    (s) => s.name.toLowerCase().includes(q) || s.iataCode.toLowerCase().includes(q),
   );
 }
 
@@ -16,7 +21,7 @@ function handleSelect(
   suggestion: Suggestion,
   setSelected: (s: Suggestion) => void,
   setInput: (v: string) => void,
-  setSuggestions: (s: Suggestion[]) => void
+  setSuggestions: (s: Suggestion[]) => void,
 ) {
   setSelected(suggestion);
   setInput(`${suggestion.name} (${suggestion.iataCode})`);
@@ -27,7 +32,7 @@ function handleClear(
   setInput: (v: string) => void,
   setSelected: (v: Suggestion | null) => void,
   setSuggestions: (s: Suggestion[]) => void,
-  inputRef: React.RefObject<HTMLInputElement>
+  inputRef: React.RefObject<HTMLInputElement>,
 ) {
   setInput('');
   setSelected(null);
@@ -36,7 +41,6 @@ function handleClear(
 }
 
 export function useFlightSearch() {
-
   const [tripType, setTripType] = useState<string>('oneway');
 
   const [fromInput, setFromInput] = useState<string>('');
@@ -73,7 +77,7 @@ export function useFlightSearch() {
 
   const [nearbyAirports, setNearbyAirports] = useState<NearbyAirport[]>([]);
   const [currentAirport, setCurrentAirport] = useState<Airport | null>(null);
-  
+
   // Toggle for mock/live mode
   const [useMock, setUseMock] = useState<boolean>(true);
 
@@ -111,11 +115,7 @@ export function useFlightSearch() {
   }, [useMock]);
 
   useEffect(() => {
-    function autoSelect(
-      input: string,
-      focused: boolean,
-      setSelected: (s: Suggestion) => void
-    ) {
+    function autoSelect(input: string, focused: boolean, setSelected: (s: Suggestion) => void) {
       if (useMock && input && focused) {
         const match = filterSuggestions(input)[0];
         if (match) setSelected(match);
@@ -262,7 +262,8 @@ export function useFlightSearch() {
     inputRef: fromInputRef,
     focused: fromFocused,
     setFocused: setFromFocused,
-    handleSelect: (s: Suggestion) => handleSelect(s, setFromSelected, setFromInput, setFromSuggestions),
+    handleSelect: (s: Suggestion) =>
+      handleSelect(s, setFromSelected, setFromInput, setFromSuggestions),
     clear: () => handleClear(setFromInput, setFromSelected, setFromSuggestions, fromInputRef),
   };
   const to = {
@@ -401,4 +402,4 @@ export function useFlightSearch() {
     swapFromTo,
     handleSearch,
   };
-} 
+}

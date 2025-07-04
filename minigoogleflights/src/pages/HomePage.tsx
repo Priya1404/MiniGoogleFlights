@@ -81,6 +81,7 @@ function HomePage() {
             setReturnDate={flightSearch.setReturnDate}
             adults={flightSearch.adults}
             setAdults={flightSearch.setAdults}
+            // eslint-disable-next-line react/no-children-prop
             children={flightSearch.children}
             setChildren={flightSearch.setChildren}
             cabinClass={flightSearch.cabinClass}
@@ -148,7 +149,11 @@ function HomePage() {
         </>
       )}
       {flightSearch.tab === 'bookings' && (
-        <BookingsTab bookings={booking.bookings} setTab={flightSearch.setTab} resetSearch={resetSearch} />
+        <BookingsTab
+          bookings={booking.bookings}
+          setTab={flightSearch.setTab}
+          resetSearch={resetSearch}
+        />
       )}
     </div>
   );

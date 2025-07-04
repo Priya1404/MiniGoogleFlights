@@ -55,4 +55,4 @@ const FlightResultsSection: React.FC<FlightResultsSectionProps> = ({
   );
 };
 
-export default FlightResultsSection; 
+export default FlightResultsSection;

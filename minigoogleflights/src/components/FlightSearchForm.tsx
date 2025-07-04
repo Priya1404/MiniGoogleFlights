@@ -101,7 +101,14 @@ const FlightSearchForm: React.FC<FlightSearchFormProps> = ({
           focused={from.focused}
         />
       </div>
-      <button type="button" className="swap-btn" title="Swap" onClick={() => {/* swap handled in parent */}}>
+      <button
+        type="button"
+        className="swap-btn"
+        title="Swap"
+        onClick={() => {
+          // swap handled in parent
+        }}
+      >
         &#8646;
       </button>
       <div className="input-group" style={{ position: 'relative' }}>
@@ -171,6 +178,7 @@ const FlightSearchForm: React.FC<FlightSearchFormProps> = ({
           <TravellersDropdown
             adults={adults}
             setAdults={setAdults}
+            // eslint-disable-next-line react/no-children-prop
             children={children}
             setChildren={setChildren}
             cabinClass={cabinClass}
@@ -187,4 +195,4 @@ const FlightSearchForm: React.FC<FlightSearchFormProps> = ({
   );
 };
 
-export default FlightSearchForm; 
+export default FlightSearchForm;

@@ -23,4 +23,4 @@ const flightsSlice = createSlice({
 });
 
 export const { setFlights } = flightsSlice.actions;
-export default flightsSlice.reducer; 
+export default flightsSlice.reducer;

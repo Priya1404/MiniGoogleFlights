@@ -62,4 +62,4 @@ const TravellersDropdown: React.FC<TravellersDropdownProps> = ({
   );
 };
 
-export default TravellersDropdown; 
+export default TravellersDropdown;

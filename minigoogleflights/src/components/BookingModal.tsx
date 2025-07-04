@@ -127,4 +127,4 @@ const BookingModal: React.FC<BookingModalProps> = ({
   );
 };
 
-export default BookingModal; 
+export default BookingModal;
